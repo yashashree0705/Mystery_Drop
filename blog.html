@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    nav {
+      background: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav img {
+      height: 50px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* above is for navigation bar*/
+
+    /*they are for the blog animation*/
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #222 0%, #000 100%);
+    }
+
+    .glitch {
+      font-size: 4rem;
+      position: relative;
+      animation: glitch 1.5s infinite;
+      color: #0ff;
+      text-shadow: 2px 2px #ff00c1, -2px -2px #00fff2;
+    }
+
+    
+    @keyframes glitch {
+      /*0% {text-shadow: 2px 2px #ff00c1, -2px -2px #00fff2;}
+      20% {text-shadow: -2px 2px #ff00c1, 2px -2px #00fff2;}
+      40% {text-shadow: 2px -2px #ff00c1, -2px 2px #00fff2;}
+      60% {text-shadow: 0 0 #fff;}
+      80% {text-shadow: -2px -2px #ff00c1, 2px 2px #00fff2;}
+      100% {text-shadow: 2px 2px #ff00c1, -2px -2px #00fff2;}*/
+    }
+
+    /*for scroll and tagline below blog*/
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+
+    .scroll {
+      margin-top: 2rem;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #0ff;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: #000;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    #blogs {
+      padding: 4rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .blog-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 800px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 0.6s forwards;
+    }
+
+    .blog-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 20px #ff00ff88;
+    }
+
+    .blog-title {
+      font-size: 1.8rem;
+      color: #00ffff;
+      margin-bottom: 1rem;
+    }
+
+    .blog-content {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #dcdcdc;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 30px;
+      padding: 2rem;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    .card-grid::-webkit-scrollbar {
+      display: none;
+      /* Chrome, Safari */
+    }
+
+    .flipbook {
+      min-width: 320px;
+      perspective: 1500px;
+      border: 2px solid #00f6ff;
+      border-radius: 15px;
+      box-shadow: 0 0 12px #00f6ff, inset 0 0 8px #00f6ff66;
+      background: linear-gradient(135deg, #111, #1e1e1e);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .flipbook:hover {
+      box-shadow: 0 0 22px #00f6ff, 0 0 12px #00e0ff inset;
+    }
+
+
+
+    /*tags*/
+    .tags {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .tags span {
+      background: #222;
+      padding: 6px 14px;
+      margin: 5px;
+      border: 1px solid #0ff;
+      border-radius: 20px;
+      cursor: pointer;
+      display: inline-block;
+      transition: all 0.2s ease;
+      color: #0ff;
+    }
+
+    .tags span:hover {
+      background: #0ff;
+      color: #000;
+    }
+
+    /*subscription box*/
+    .cta-box {
+      background: #111;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem auto;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0, 255, 255, 0.2);
+      max-width: 600px;
+      line-height: 300%;
+    }
+
+    .cta-box input[type=email] {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      width: 60%;
+      max-width: 300px;
+      margin-right: 10px;
+    }
+
+    .cta-box button {
+      background: #0ff;
+      border: none;
+      padding: 10px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .container {
+      display: flex;
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .blogs {
+      flex: 3;
+    }
+
+    .card-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 30px;
+      padding: 2rem;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+    }
+
+    .card-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+
+    /*flip of blog cards*/
+    .flipbook {
+      perspective: 1500px;
+      position: relative;
+    }
+
+    .flip {
+      width: 320px;
+      height: 370px;
+      transform-style: preserve-3d;
+      transition: transform 1s ease;
+      cursor: pointer;
+    }
+
+
+    .flip:hover {
+      transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      padding: 20px;
+      box-sizing: border-box;
+      background: linear-gradient(135deg, #1b1b1b, #282828);
+      border: 1px solid #14f1ff;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #14f1ff44;
+      backface-visibility: hidden;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .blog-title {
+      font-size: 1.3rem;
+      color: #14f1ff;
+      margin-bottom: 10px;
+    }
+
+    .blog-text {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #ccc;
+    }
+
+    .blog-img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    a.read-more {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 8px 15px;
+      background: #14f1ff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <img src="logo.jpg" img-size="100% 100%" alt="MysteryDrop Logo">
+    <ul>
+      <li><a href="my.html">Features</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </nav>
+
+
+  <section class="hero" id="hero">
+    <h1 class="glitch">BLOGS</h1>
+    <p class="tagline">About mysterydrop and its journey</p>
+    <a href="#blogs" class="scroll">↓ and all others like us</a>
+
+    <div class="tags">
+      <a href="#blog1"><span>#Productivity</span></a>
+      <a href="#blog2"><span>#Design</span></a>
+      <a href="#blog3"><span>#Startup</span></a>
+      <a href="#blog4"><span>#MysteryBox</span></a>
+    </div>
+  </section>
+
+  <section id="blogs" class="blogs">
+    <div class="card-grid">
+
+      <!-- Blog Card 1 -->
+      <div class="flipbook">
+        <div class="flip">
+          <div class="front">
+            <img src="logo.jpg" class="blog-img" alt="Blog 1 Image" />
+            <div class="blog-title">Inside the MysteryDrop Launch Strategy</div>
+            <div class="blog-text">
+              How we planned our first digital mystery box and what surprised us from early user feedback.
+            </div>
+          </div>
+          <div class="back">
+            <div class="blog-text">
+              Explore the launch framework, content mix, how we used freebies and competitions to gather insight. Links
+              to our first Gumroad freebie! <br /><br />
+              <a href="https://medium.com/@yashashree754/a-startup-by-a-student-for-a-student-ed77537ee58e"
+                class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Card 2 -->
+      <div class="flipbook">
+        <div class="flip">
+          <div class="front">
+            <img src="post.jpg" class="blog-img" alt="Blog 2 Image" />
+            <div class="blog-title">What it solves for you??</div>
+            <div class="blog-text">
+              Discover tools, templates, and frugal hacks for time management, focus, and creative workflows.
+            </div>
+          </div>
+          <div class="back">
+            <div class="blog-text">
+              Featuring Notion boards, Gumroad kits, and AI plug-ins for students and solopreneurs. Actionable tips that
+              helped our team work smarter. <br /><br />
+              <a href="https://www.instagram.com/reel/DK7DBmPNK1b/?igsh=MWZ0ZHp3MGFmMHlmNQ==" class="read-more">Read
+                More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Blog Card 3 -->
+      <div class="flipbook">
+        <div class="flip">
+          <div class="front">
+            <img src="https://www.aicrntu.com/Ideate%20Cohort%20-%20Banner%20-%20New%20B.jpg" class="blog-img" alt="Blog 3 Image" />
+            <div class="blog-title"> From Ideation to Impact: My SHEvolution Story</div>
+            <div class="blog-text">
+              Discover how I’m building Mysterydrop from scratch through SHEvolution – from brainstorming bold ideas to applying design thinking and frugal marketing hacks
+            </div>
+          </div>
+          <div class="back">
+            <div class="blog-text">
+              Explore the launch framework, content mix, how we used freebies and competitions to gather insight. Links
+              to our first Gumroad freebie! <br /><br />
+              <a href="https://www.linkedin.com/posts/yashashree-pradhan-94b8a032a_mysterydrop-shevolution2025-aicrntu-activity-7343977032822706176-gXAT?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFMRr0sB__pJkqUAjS57I4CvqTb5UFTTMrU" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add More Cards by Copying This Block -->
+      <!-- ... -->
+
+    </div>
+  </section>
+  </section>
+
+  <form action="https://formsubmit.co/yashashree754@gmail.com" method="POST" class="cta-box">
+  <h3>✨ Be the First to Get Our Drops</h3>
+  <p>Subscribe for updates, templates, and sneak peeks.</p>
+  <input type="email" name="email" placeholder="you@example.com" required>
+  <button type="submit">Notify Me</button>
+</form>
+
+
+  <footer>
+    <p>&copy; 2025 MysteryDrop. Built by young creators, for curious minds.</p>
+    <p>
+      <a href="https://instagram.com/yourhandle" target="_blank"
+        style="text-decoration: none; color: #007bff;">Instagram</a> |
+      <a href="https://linkedin.com/in/yourprofile" target="_blank"
+        style="text-decoration: none; color: #007bff;">LinkedIn</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>

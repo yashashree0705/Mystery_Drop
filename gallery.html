@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery-mysterydrop</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      font-family: 'Orbitron', sans-serif;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: #fff;
+      overflow-x: hidden;
+    }
+    nav {
+      background: #000;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    nav img {
+      height: 50px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+    nav ul li a {
+      color: #0ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+
+    .gallerys {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 4rem 2rem;
+      background: #111;
+    }
+    .gallerys {
+      background: #1a1a1a;
+      border: 1px solid #0ff;
+      padding: 2rem;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallerys:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 15px #0ff;
+    }
+
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at center, #222 0%, #000 100%);
+    }
+    .glitch {
+      font-size: 4rem;
+      position: relative;
+      animation: glitch 1.5s infinite;
+      color: #0ff;
+    }
+    @keyframes glitch {
+      0% {text-shadow: 2px 2px #ff00c1, -2px -2px #00fff2;}
+      20% {text-shadow: -2px 2px #ff00c1, 2px -2px #00fff2;}
+      40% {text-shadow: 2px -2px #ff00c1, -2px 2px #00fff2;}
+      60% {text-shadow: 0 0 #fff;}
+      80% {text-shadow: -2px -2px #ff00c1, 2px 2px #00fff2;}
+      100% {text-shadow: 2px 2px #ff00c1, -2px -2px #00fff2;}
+    }
+    .tagline {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      color: #ccc;
+    }
+    .scroll {
+      margin-top: 2rem;
+      font-size: 1rem;
+      text-decoration: none;
+      color: #0ff;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-10px);}
+    }
+
+     footer {
+      text-align: center;
+      padding: 1rem;
+      background: #000;
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+
+    .gallery-container {
+      padding: 4rem 2rem;
+      background: #111;
+    }
+  
+     .gallery-item {
+      background: #1a1a1a;
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .gallery-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #0ff;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .gallery-item .caption {
+      padding: 1rem;
+      font-size: 0.95rem;
+      color: #ddd;
+    }
+</style>
+</head>
+<body>
+  <nav>
+    <img src="logo.jpg" img-size="100% 100%" alt="MysteryDrop Logo">
+    <ul>
+      <li><a href="my.html">Features</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" id="hero">
+  <h1 class="glitch">GALLERY</h1>
+  <p class="tagline">Your feedbacks :></p>
+  <a href="#gallerys" class="scroll">↓ and our memories!!!</a>
+  </section>
+
+<section id="gallerys" class="gallery-container">
+    <div class="gallerys">
+      <div class="gallery-item" data-aos="fade-up">
+        <img src="feedback1.jpg" alt="Feedback 1">
+        <div class="caption">"Loved the mystery kit! It gave me exactly the push I needed." – Riya</div>
+      </div>
+
+      <div class="gallery-item" data-aos="fade-up" data-aos-delay="100">
+        <img src="session2.png" alt="Achievement">
+        <div class="caption">SHEvolution sessions🎉</div>
+      </div>
+
+      <div class="gallery-item" data-aos="fade-up" data-aos-delay="200">
+        <img src="feedback2.jpg" alt="Feedback 2">
+        <div class="caption">"The productivity tools are game-changing. Simple yet powerful." – Arjun</div>
+      </div>
+    </div>
+  </section>
+  
+  <h1 style="text-align: center;">MORE COMING SOON.......</h1>
+   
+  
+  <footer>
+    <p>&copy; 2025 MysteryDrop. Built by young creators, for curious minds.</p>
+    <p>
+      <a href="https://instagram.com/yourhandle" target="_blank" style="text-decoration: none; color: #007bff;">Instagram</a> | 
+      <a href="https://linkedin.com/in/yourprofile" target="_blank" style="text-decoration: none; color: #007bff;">LinkedIn</a>
+    </p>
+  </footer>
+</body>
+</html>
