@@ -335,6 +335,20 @@
       border-radius: 8px;
       font-weight: bold;
     }
+
+    .blog-post {
+      background: #1a1a1a;
+      border: 2px solid #0ff;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+      .blog-post:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px #0ff;
+    }
   </style>
 </head>
 
@@ -362,9 +376,9 @@
     </div>
   </section>
 
-  <section id="blogs" class="blogs">
+  <section id="posts" class="blog-container">
     <div class="card-grid">
-
+    
       <!-- Blog Card 1 -->
       <div class="flipbook">
         <div class="flip">
@@ -429,6 +443,24 @@
 
       <!-- Add More Cards by Copying This Block -->
       <!-- ... -->
+      <!-- Blog Card 4 -->
+       <div class="flipbook">
+        <div class="flip">
+          <div class="front">
+            <img src="session.jpg" class="blog-img" alt="Blog 3 Image" />
+            <div class="blog-title">The session that got me thinking</div>
+            <div class="blog-text">
+               Bold ideas that are just not made but digital markerting and frugal marketing hacks can shape it
+            </div>
+          </div>
+          <div class="back">
+            <div class="blog-text">
+              Just look into it if you want to know how it was for me <br /><br />
+              <a href="https://www.linkedin.com/posts/yashashree-pradhan-94b8a032a_marketingmagic-influencerstrategy-digitalmarketing-activity-7354832329036488704-1ZxI?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFMRr0sB__pJkqUAjS57I4CvqTb5UFTTMrU" class="read-more">Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
     </div>
   </section>
@@ -445,9 +477,9 @@
   <footer>
     <p>&copy; 2025 MysteryDrop. Built by young creators, for curious minds.</p>
     <p>
-      <a href="https://instagram.com/yourhandle" target="_blank"
+      <a href="https://www.instagram.com/_mysterydrop" target="_blank"
         style="text-decoration: none; color: #007bff;">Instagram</a> |
-      <a href="https://linkedin.com/in/yourprofile" target="_blank"
+      <a href="www.linkedin.com/in/yashashree-pradhan-94b8a032a" target="_blank"
         style="text-decoration: none; color: #007bff;">LinkedIn</a>
     </p>
   </footer>
